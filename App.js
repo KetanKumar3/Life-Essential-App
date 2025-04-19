@@ -10,10 +10,12 @@ import MyCart from './src/components/MyCart';
 import MedicineSchedule from './src/components/MedicineSchedule';
 import MedicineSchedule2 from './src/components/MedicineSchedule2';
 import MyProfile from './src/components/MyProfile';
+import CartItemsDisplay from './src/components/CartItemsDisplay';
+import BillingDetails from './src/components/BillingDetails';
 
 const App = () => {
 return(
-<MyProfile />
+<BillingDetails />
 );
 }
 
