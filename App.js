@@ -12,10 +12,12 @@ import MedicineSchedule2 from './src/components/MedicineSchedule2';
 import MyProfile from './src/components/MyProfile';
 import CartItemsDisplay from './src/components/CartItemsDisplay';
 import BillingDetails from './src/components/BillingDetails';
+import SurveyDetails from './src/components/SurveyDetails';
+import SurveyDetails2 from './src/components/SurveyDetails2';
 
 const App = () => {
 return(
-<BillingDetails />
+<SurveyDetails2 />
 );
 }
 
