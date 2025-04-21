@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
 
+
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 const Page = ({ children }) => {
@@ -9,6 +10,7 @@ const Page = ({ children }) => {
 };
 
 const Splash = () => {
+
   const [currentPage, setCurrentPage] = useState(0);
   const scrollViewRef = useRef();
   const pageCount = 4; // Number of pages
@@ -17,6 +19,8 @@ const Splash = () => {
     const page = Math.round(event.nativeEvent.contentOffset.x / screenWidth);
     setCurrentPage(page);
   };
+
+
 
   return (
     <View style={styles.container}>
@@ -66,7 +70,7 @@ const Splash = () => {
                   textInputStyle={styles.phoneInputTextInput}
                   codeTextStyle={styles.phoneInputCodeText}
                 />
-                <TouchableOpacity style={styles.generateOTPButton}>
+                <TouchableOpacity style={styles.generateOTPButton}  >
                   <Text style={styles.generateOTPText}>Generate OTP</Text>
                 </TouchableOpacity>
 

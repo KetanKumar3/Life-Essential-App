@@ -32,6 +32,7 @@ const SurveyDetails2 = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content}>
+
         <Text style={styles.question}>Do You want to have your?</Text>
         {options.map((option, index) => (
           <TouchableOpacity

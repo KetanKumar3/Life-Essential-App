@@ -1,5 +1,4 @@
 import React from 'react';
-import Shop from './src/components/Shop';
 import Splash from './src/components/Splash';
 import OtpVerification from './src/components/OtpVerification';
 import BasicDetails from './src/components/BasicDetails';
@@ -14,10 +13,13 @@ import CartItemsDisplay from './src/components/CartItemsDisplay';
 import BillingDetails from './src/components/BillingDetails';
 import SurveyDetails from './src/components/SurveyDetails';
 import SurveyDetails2 from './src/components/SurveyDetails2';
+import SurveyTest1 from './src/components/SurveyTest1';
+import SurveyTest2 from './src/components/SurveyTest2';
+import CongratulationScreen from './src/components/CongratulationScreen';
 
 const App = () => {
 return(
-<SurveyDetails2 />
+<CongratulationScreen />
 );
 }
 
