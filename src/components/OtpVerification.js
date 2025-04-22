@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { View, TextInput, StyleSheet, Text, TouchableOpacity, Dimensions } from 'react-native';
-
+import {useNavigation} from '@react-navigation/native';
 const { width: screenWidth } = Dimensions.get('window');
 
 const OtpVerification = () => {
+const navigation = useNavigation();
+
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const inputRefs = useRef([]);
 
@@ -26,6 +28,7 @@ const OtpVerification = () => {
   const verifyOTP = () => {
     const enteredOTP = otp.join('');
     console.log('Entered OTP:', enteredOTP);
+    navigation.navigate("BasicDetails");
     // Add your OTP verification logic here
   };
 

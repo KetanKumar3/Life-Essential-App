@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     padding: 10,
+    marginBottom:100,
   },
   productsGrid: {
     flexDirection: 'row',

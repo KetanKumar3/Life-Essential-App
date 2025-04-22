@@ -1,35 +1,39 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
-const MedicineItem = () => (
-  <View style={styles.medicineRow}>
-    <View style={styles.imageContainer}>
-      <Image
-        source={require('../assets/image1.png')}
-        style={styles.medicineImage}
-        resizeMode="cover"
-      />
+const MedicineItem = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.medicineRow}>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('../assets/image1.png')}
+          style={styles.medicineImage}
+          resizeMode="cover"
+        />
+      </View>
+      <View style={styles.medicineInfo}>
+        <Text style={styles.medicineName} numberOfLines={3} ellipsizeMode="tail">
+          balnce Life advance
+        </Text>
+        <Text style={styles.medicineDosage}>Dosage - 2 Times a day</Text>
+        <TouchableOpacity style={styles.scheduleButton} onPress={() => { navigation.navigate('MedicineSchedule2'); }}>
+          <Text style={styles.scheduleButtonText}>Set Schedule</Text>
+        </TouchableOpacity>
+      </View>
     </View>
-    <View style={styles.medicineInfo}>
-      <Text style={styles.medicineName} numberOfLines={3} ellipsizeMode="tail">
-        balnce Life advance
-      </Text>
-      <Text style={styles.medicineDosage}>Dosage - 2 Times a day</Text>
-      <TouchableOpacity style={styles.scheduleButton}>
-        <Text style={styles.scheduleButtonText}>Set Schedule</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-);
+  );
+};
 
 const MedicineSchedule = () => {
   const numberOfItems = 5; // You can change this number
 
   return (
     <ScrollView style={styles.container}>
-
       {Array.from({ length: numberOfItems }).map((_, index) => (
         <MedicineItem key={index} />
       ))}
@@ -41,14 +45,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, // Added flex: 1 to make the ScrollView take up the screen
     backgroundColor: '#f9f9f9',
-    marginHorizontal: 20,
-    marginTop: 40,
-  },
-  header: {
-    fontSize: width * 0.05,
-    fontWeight: 'bold',
-    marginBottom: height * 0.02,
-    color: '#333',
+    paddingHorizontal: width * 0.05, // Use percentage for responsive padding
+    paddingTop: height * 0.02, // Use percentage for responsive top padding
   },
   medicineRow: {
     flexDirection: 'row',

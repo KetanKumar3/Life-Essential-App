@@ -5,14 +5,17 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useNavigation} from '@react-navigation/native';
+
 function MyProfile(){
+const navigation = useNavigation();
 
 return(
 <ScrollView style={{flex:1,backgroundColor:"white"}}>
 <View>
 
 // Profile Start
-<Text style={{textAlign:"center",fontWeight:"bold",fontSize:24,marginTop:30}}>Profile</Text>
+<Text style={{textAlign:"center",fontWeight:"bold",fontSize:24,marginTop:40,marginBottom:30}}>Profile</Text>
 
 
 // My profile starts
@@ -44,7 +47,7 @@ return(
 
 // My cart starts
 
-<TouchableOpacity>
+<TouchableOpacity onPress={()=>{navigation.navigate('MyCart')}} >
 <View style={styles.container}>
       <View style={styles.iconBackground}>
         <AntDesign name="shoppingcart" size={24} color="black" />
@@ -86,7 +89,7 @@ return(
 
 // supplement starts
 
-<TouchableOpacity>
+<TouchableOpacity onPress={()=>{navigation.navigate("MedicineSchedule")}} >
 <View style={styles.container}>
       <View style={styles.iconBackground}>
         <MaterialIcons name="schedule" size={24} color="black" />
@@ -101,7 +104,7 @@ return(
 
 // notification start
 
-<TouchableOpacity >
+<TouchableOpacity onPress={()=>{navigation.navigate('Notifications')}} >
 <View style={styles.container}>
       <View style={styles.iconBackground}>
         <Ionicons name="notifications-outline" size={24} color="black" />

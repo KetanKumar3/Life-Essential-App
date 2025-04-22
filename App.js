@@ -15,12 +15,103 @@ import SurveyDetails from './src/components/SurveyDetails';
 import SurveyDetails2 from './src/components/SurveyDetails2';
 import SurveyTest1 from './src/components/SurveyTest1';
 import SurveyTest2 from './src/components/SurveyTest2';
+import SurveyRecommendation from './src/components/SurveyRecommendation';
 import CongratulationScreen from './src/components/CongratulationScreen';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Tabs from './src/components/Tabs';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { TouchableOpacity,StyleSheet } from 'react-native';
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
 return(
-<CongratulationScreen />
+<NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+      <Stack.Screen name="OtpVerification" component={OtpVerification} options={{ headerShown: false }} />
+      <Stack.Screen name="BasicDetails" component={BasicDetails} options={{ headerShown: false }} />
+      <Stack.Screen name="SurveyDetails" component={SurveyDetails} options={{ headerShown: false }} />
+      <Stack.Screen name="SurveyDetails2" component={SurveyDetails2} options={{ headerShown: false }} />
+      <Stack.Screen name="SurveyRecommendation" component={SurveyRecommendation} options={{ headerShown: false }} />
+      <Stack.Screen name="BillingDetails" component={BillingDetails} options={{ headerShown: false }} />
+      <Stack.Screen name="CongratulationScreen" component={CongratulationScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="MyCart" component={MyCart}
+       options={{
+                                              headerTitle: '',
+
+                                               headerLeft: () => {
+                                                 const navigation = useNavigation();
+                                                 return (
+                                                   <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerContainer}> // Use goBack()
+                                                     <MaterialIcons name="arrow-back-ios" size={20} color="black" style={{ marginLeft: 2 }} />
+                                                   </TouchableOpacity>
+                                                 );
+                                               },
+
+                                   }}
+       />
+      <Stack.Screen name="Notifications" component={Notifications}
+       options={{
+
+                                        headerTitle:'',
+                                        headerLeft: () => {
+                                          const navigation = useNavigation();
+                                          return (
+                                            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerContainer}> // Use goBack()
+                                              <MaterialIcons name="arrow-back-ios" size={20} color="black" style={{ marginLeft: 2 }} />
+                                            </TouchableOpacity>
+                                          );
+                                        },
+
+                            }}
+       />
+      <Stack.Screen name="MainTabs" component={Tabs} options={{ headerShown: false }} />
+      <Stack.Screen name="MedicineSchedule" component={MedicineSchedule}
+       options={{
+                                                     headerTitle: '',
+
+                                                      headerLeft: () => {
+                                                        const navigation = useNavigation();
+                                                        return (
+                                                          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerContainer}> // Use goBack()
+                                                            <MaterialIcons name="arrow-back-ios" size={20} color="black" style={{ marginLeft: 2 }} />
+                                                          </TouchableOpacity>
+                                                        );
+                                                      },
+
+                                          }}
+       />
+      <Stack.Screen name="MedicineSchedule2" component={MedicineSchedule2}
+       options={{
+                                                     headerTitle: '',
+
+                                                      headerLeft: () => {
+                                                        const navigation = useNavigation();
+                                                        return (
+                                                          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerContainer}> // Use goBack()
+                                                            <MaterialIcons name="arrow-back-ios" size={20} color="black" style={{ marginLeft: 2 }} />
+                                                          </TouchableOpacity>
+                                                        );
+                                                      },
+
+                                          }}
+       />
+      </Stack.Navigator>
+</NavigationContainer>
 );
 }
+
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    marginHorizontal: 20,
+    padding: 10,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 50,
+  },
+});
 
 export default App;

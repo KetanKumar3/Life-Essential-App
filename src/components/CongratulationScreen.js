@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
 const CongratulationScreen = () => {
+const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton}>
@@ -16,7 +19,7 @@ const CongratulationScreen = () => {
       />
       <Text style={styles.congratulationText}>Congratulation!!</Text>
       <Text style={styles.messageText}>You have taken a big step in improving your health!</Text>
-      <TouchableOpacity style={styles.backHomeButton}>
+      <TouchableOpacity style={styles.backHomeButton} onPress={()=>{navigation.navigate("MainTabs")}} >
         <Text style={styles.backHomeText}>Back to home</Text>
       </TouchableOpacity>
       <Text style={styles.scheduleReminder}>

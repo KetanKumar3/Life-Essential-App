@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const { width: screenWidth } = Dimensions.get('window');
 
 const BasicDetails = () => {
+
+const navigation = useNavigation();
+
   const [selectedGender, setSelectedGender] = useState(null);
 
   const handleGenderSelect = (gender) => {
@@ -61,7 +65,7 @@ const BasicDetails = () => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.doneButton}>
+      <TouchableOpacity style={styles.doneButton} onPress={()=>{navigation.navigate("SurveyDetails")}}>
         <Text style={styles.doneButtonText}>Done</Text>
       </TouchableOpacity>
 

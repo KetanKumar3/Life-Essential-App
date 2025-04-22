@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
 const SurveyDetails = () => {
+const navigation = useNavigation();
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionSelect = (option) => {
@@ -16,6 +18,7 @@ const SurveyDetails = () => {
     if (selectedOption) {
       // Navigate to the next screen or perform further actions
       console.log('Proceeding to the next step...');
+      navigation.navigate("SurveyDetails2");
     } else {
       // Optionally, provide feedback to the user to select an option
       console.log('Please select an option.');
@@ -89,11 +92,11 @@ const styles = StyleSheet.create({
     color: '#555',
   },
   selectedOption: {
-    backgroundColor: '#89A97A1A', // Light cyan
+    backgroundColor: '#89A97A', // Light cyan
     borderColor: '#89A97A1A',
   },
   nextButton: {
-    backgroundColor: '#aed581', // Light green
+    backgroundColor: '#89A97A', // Light green
     paddingVertical: height * 0.025,
     borderRadius: width * 0.02,
     alignItems: 'center',
@@ -105,7 +108,7 @@ const styles = StyleSheet.create({
     opacity: 0.7, // Indicate disabled state
   },
   nextButtonActive: {
-    backgroundColor: '#7cb342', // Green
+    backgroundColor: '#89A97A', // Green
     opacity: 1,
   },
   nextButtonText: {

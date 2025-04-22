@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import CardDetails from './CardDetails';
+import CardDetails2 from './CardDetails';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -24,7 +24,7 @@ const CalendarComponent = () => {
     <View style={styles.calendarContainer}>
       <Calendar
         style={styles.calendar}
-        current={'2025-04-22'}
+        current={'2024-06-22'}
         markedDates={{
           [selected]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' },
         }}
@@ -49,19 +49,15 @@ const CalendarComponent = () => {
   );
 };
 
-const MainComponent = () => {
+const Log = () => {
   return (
     <View style={styles.mainContainer}>
       <ScrollView style={{marginBottom:100}}>
-        <PageViewComponent />
+
         <CalendarComponent />
-        <CardDetails />
+        <CardDetails2 />
       </ScrollView>
-      <View style={styles.floatingButtonContainer}>
-        <TouchableOpacity style={styles.floatingButton}>
-          <Image source={require('../assets/scan.png')} style={styles.floatingButtonIcon} />
-        </TouchableOpacity>
-      </View>
+
     </View>
   );
 };
@@ -72,19 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
 
   },
-  pageViewContainer: {
-    width: screenWidth * 0.9, // Adjust width as needed
-    height: screenHeight * 0.25, // Adjust height as needed
-    margin: screenWidth * 0.05, // Adjust margin as needed
-    borderRadius: 10,
-    backgroundColor: '#f0f0f0', // Placeholder background color
-    overflow: 'hidden',
-  },
-  pageViewImage: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-  },
+
   calendarContainer: {
     margin: screenWidth * 0.05, // Adjust margin as needed
   },
@@ -93,24 +77,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#f9f9f9',
   },
-  floatingButtonContainer: {
-    position: 'absolute',
-    top: '75%', // Start at 70% from the top
-    right: screenWidth * 0.05,
-    // Ensure it's above other content
-    zIndex: 10,
-  },
-  floatingButton: {
-    backgroundColor: '#89A97A',
-    borderRadius: screenWidth * 0.1,
-    padding: screenWidth * 0.04,
-    elevation: 5, // Add shadow for better visibility
-  },
-  floatingButtonIcon: {
-    width: 50,
-    height: 50,
-    resizeMode: 'contain',
-  },
+
 });
 
-export default MainComponent;
+export default Log;

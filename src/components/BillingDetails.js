@@ -1,9 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
 const BillingDetails = () => {
+
+const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content}>
@@ -49,8 +53,8 @@ const BillingDetails = () => {
          placeholder="Enter state" />
       </ScrollView>
 
-    <TouchableOpacity style={styles.checkoutButton}>
-            <Text style={styles.checkoutButtonText}>Proceed For Checkout</Text>
+    <TouchableOpacity style={styles.checkoutButton} onPress={()=>{navigation.navigate("CongratulationScreen")}}>
+            <Text style={styles.checkoutButtonText}>Make Payment</Text>
           </TouchableOpacity>
     </View>
   );
@@ -111,7 +115,7 @@ const styles = StyleSheet.create({
     marginRight: width * 0.02, // Add some spacing between input and button
   },
   locationButton: {
-    backgroundColor: '#8fbc8f', // Dark sea green
+    backgroundColor: '#89A97A', // Dark sea green
     borderRadius: width * 0.015,
     paddingVertical: height * 0.012,
     paddingHorizontal: width * 0.025,
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
     width: width * 0.04,
     height: width * 0.04,
     borderRadius: width * 0.02,
-    backgroundColor: '#a9d1a9', // Light sea green
+    backgroundColor: '#89A97A', // Light sea green
     marginRight: width * 0.015,
   },
   locationText: {
@@ -130,7 +134,7 @@ const styles = StyleSheet.create({
     fontSize: width * 0.035,
   },
   checkoutButton: {
-      backgroundColor: '#8fbc8f', // Dark sea green
+      backgroundColor: '#89A97A', // Dark sea green
       paddingVertical: height * 0.02,
       alignItems: 'center',
       position: 'absolute',

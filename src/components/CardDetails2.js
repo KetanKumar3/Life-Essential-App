@@ -21,20 +21,11 @@ const Card = ({ time, title, description, imageSource }) => (
   </View>
 );
 
-const CardDetails = () => {
+const CardDetails2 = () => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.stepsCard}>
-        <Text style={styles.stepsTitle}>
-          <Image source={require('../assets/footprint.png')} style={styles.footprintsIcon} /> 4899 Steps
-        </Text>
-        <Text style={styles.stepsDetails}>
-          8.22 Km | 1hr 2m | 345 Calories
-        </Text>
-        <TouchableOpacity style={styles.statsButton}>
-          <Text style={styles.statsButtonText}>See stats >></Text>
-        </TouchableOpacity>
-      </View>
+
+
 
       <Text style={styles.scheduleTitle}>Today's schedule</Text>
 
@@ -161,4 +152,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default CardDetails;
+export default CardDetails2;
