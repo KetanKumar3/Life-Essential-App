@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -50,6 +51,14 @@ const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
+    <View style={styles.container2}>
+                <TouchableOpacity  style={styles.backButton} onPress={() => navigation.goBack()}>
+                  <MaterialIcons name="arrow-back-ios" size={width * 0.06} color="#272928" style={{marginLeft:8}} />
+                </TouchableOpacity>
+                <View style={styles.progressContainer}>
+                  <Text style={styles.progressText}>Recommendations</Text>
+                </View>
+              </View>
       <View style={styles.productList}>
         <Text style={styles.header}>Based on a survey Here is the recommendations for you</Text>
         <ProductCard
@@ -73,44 +82,76 @@ const navigation = useNavigation();
 };
 
 const styles = StyleSheet.create({
+container2: {
+    marginLeft:24,
+    flexDirection: 'row',
+    alignItems:"center",
+    marginTop:27,
+    paddingVertical: width * 0.03, // Adjust vertical padding as needed
+    backgroundColor: '#f9f9f9', // Optional background color
+    borderBottomWidth: 1, // Optional bottom border
+    borderBottomColor: '#F3F3F3', // Optional bottom border color
+  },
+  backButton: {
+    padding: width * 0.02,
+    borderWidth:1,
+    borderColor:"#E6E6E6",
+
+  },
+  progressContainer: {
+    // No specific styling needed for the container itself in this layout
+  },
+  progressText: {
+    fontSize: 19.2,
+    fontWeight:500,
+    color: '#272928',
+    marginLeft:15,
+  },
   container: {
     flex: 1,
     backgroundColor: '#f9f9f9',
   },
   productList: {
     flex: 1,
-    padding: width * 0.04,
+    paddingHorizontal:24,
+    marginTop:40,
   },
   header: {
-    fontSize: width * 0.055,
-    fontWeight: 'bold',
-    marginBottom: height * 0.02,
+    fontSize: 27,
+    fontWeight: 500,
+    marginBottom: 40,
+    color:"#272928",
   },
   productCard: {
     flexDirection: 'row',
     backgroundColor: 'white',
-    padding: width * 0.03,
-    borderRadius: 10,
+
+    borderRadius: 8,
     marginBottom: height * 0.015,
+    borderWidth:1,
+    borderColor:"#F4F4F4",
   },
   productImage: {
     width: width * 0.3,
-    height: width * 0.35,
+    height: 151,
     marginRight: width * 0.03,
   },
   productDetails: {
     flex: 1,
+    marginTop:10,
   },
   productTitle: {
-    fontSize: width * 0.04,
-    fontWeight: 'bold',
+    fontSize: 16,
+    color:"#272928",
+    fontWeight: 500,
   },
   rating: {
     flexDirection: 'row',
+    gap:2,
     marginTop: height * 0.005,
   },
   star: {
-    color: 'gold',
+    color: '#89A97A',
     fontSize: width * 0.035,
   },
   price: {

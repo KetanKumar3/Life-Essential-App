@@ -2,59 +2,38 @@ import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import CardDetails from './CardDetails';
+import PageViewComponent from './PageViewComponent';
+import CustomCalendar from './CustomCalendar';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-const PageViewComponent = () => {
-  return (
-    <View style={styles.pageViewContainer}>
-      <Image
-        source={require('../assets/image1.png')} // Replace with your image path
-        style={styles.pageViewImage}
-        resizeMode="cover"
-      />
-    </View>
-  );
-};
-
-const CalendarComponent = () => {
-  const [selected, setSelected] = useState('2024-06-12'); // Set initial selected date
-
-  return (
-    <View style={styles.calendarContainer}>
-      <Calendar
-        style={styles.calendar}
-        current={'2025-04-22'}
-        markedDates={{
-          [selected]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' },
-        }}
-        onDayPress={day => {
-          setSelected(day.dateString);
-        }}
-        theme={{
-          selectedDayBackgroundColor: '#89A97A',
-          selectedDayTextColor: 'white',
-          todayTextColor: '#89A97A',
-          arrowColor: '#89A97A',
-          'stylesheet.calendar.header': {
-            week: {
-              marginTop: 5,
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-            },
-          },
-        }}
-      />
-    </View>
-  );
-};
 
 const MainComponent = () => {
+
+const navigation = useNavigation()
+
   return (
     <View style={styles.mainContainer}>
+<View style={styles.container}>
+      <View style={styles.greetingContainer}>
+        <Text style={styles.greetingText}>Good Morning</Text>
+        <Text style={styles.nameText}>Ketan Kumar</Text>
+      </View>
+      <View style={styles.iconsContainer}>
+        <TouchableOpacity  style={styles.iconButton} onPress={()=>{navigation.navigate("Notifications")}}>
+          <Ionicons name="notifications-outline" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity  style={styles.iconButton} onPress={()=>{navigation.navigate("MyCart")}} >
+          <Feather name="shopping-cart" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
       <ScrollView style={{marginBottom:100}}>
-        <PageViewComponent />
-        <CalendarComponent />
+      <PageViewComponent />
+        <CustomCalendar />
         <CardDetails />
       </ScrollView>
       <View style={styles.floatingButtonContainer}>
@@ -67,9 +46,37 @@ const MainComponent = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      backgroundColor: '#89A97A', // Match the green background
+      paddingHorizontal: 20,
+      paddingVertical: 24,
+    },
+    greetingContainer: {
+      flexDirection: 'column',
+    },
+    greetingText: {
+      fontSize: 16,
+      fontWeight:700,
+
+      color: '#FFFFFF',
+    },
+    nameText: {
+      fontSize: 23,
+      fontWeight: 700,
+      color: '#FFFFFF',
+    },
+    iconsContainer: {
+      flexDirection: 'row',
+    },
+    iconButton: {
+      marginLeft: 20,
+    },
   mainContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
 
   },
   pageViewContainer: {
@@ -99,17 +106,23 @@ const styles = StyleSheet.create({
     right: screenWidth * 0.05,
     // Ensure it's above other content
     zIndex: 10,
+
   },
   floatingButton: {
     backgroundColor: '#89A97A',
     borderRadius: screenWidth * 0.1,
     padding: screenWidth * 0.04,
     elevation: 5, // Add shadow for better visibility
+    width:73,
+        height:73,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   floatingButtonIcon: {
-    width: 50,
-    height: 50,
+    width: 32,
+    height: 32,
     resizeMode: 'contain',
+
   },
 });
 

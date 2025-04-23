@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
 import { useNavigation } from '@react-navigation/native';
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'; // Import
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -11,17 +11,15 @@ const Page = ({ children }) => {
 };
 
 const Splash = () => {
-
   const [currentPage, setCurrentPage] = useState(0);
   const scrollViewRef = useRef();
   const pageCount = 4; // Number of pages
+  const navigation = useNavigation();
 
   const handleScroll = (event) => {
     const page = Math.round(event.nativeEvent.contentOffset.x / screenWidth);
     setCurrentPage(page);
   };
-
-  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -38,26 +36,31 @@ const Splash = () => {
             {index === 0 && (
               <View style={styles.contentContainer}>
                 <Image source={require('../assets/image2.png')} style={styles.image} />
-                <Text style={styles.text}>Welcome to our app!</Text>
-                <Text style={styles.subText}>Discover amazing features.</Text>
+                <Text style={styles.text}>Text line 1</Text>
+                <Text style={styles.subText}>It is a long established fact that a reader will be distracted by the </Text>
               </View>
             )}
             {index === 1 && (
               <View style={styles.contentContainer}>
                 <Image source={require('../assets/image3.png')} style={styles.image} />
-                <Text style={styles.text}>Explore new possibilities.</Text>
-                <Text style={styles.subText}>Experience the best.</Text>
+                <Text style={styles.text}>Text line 2</Text>
+                <Text style={styles.subText}>It is a long established fact that a reader will be distracted by the </Text>
               </View>
             )}
             {index === 2 && (
               <View style={styles.contentContainer}>
                 <Image source={require('../assets/image4.png')} style={styles.image} />
-                <Text style={styles.text}>Get started today!</Text>
-                <Text style={styles.subText}>Join our community.</Text>
+                <Text style={styles.text}>Text line 3</Text>
+                <Text style={styles.subText}>It is a long established fact that a reader will be distracted by the </Text>
               </View>
             )}
             {index === 3 && (
-              <View style={styles.phoneNumberContainer}>
+              <KeyboardAwareScrollView // Wrap this content
+                style={{ flex: 1, width: screenWidth, padding: 20 }} // Adjust styles as needed
+                contentContainerStyle={styles.phoneNumberContainer} // Apply existing styles
+                behavior={Platform.OS === 'ios' ? 'padding' : undefined} // Optional: Adjust for iOS
+                keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0} // Optional: Adjust for iOS
+              >
                 <Text style={styles.phoneNumberText}>Enter Your Phone Number</Text>
                 <Text style={styles.subText}>
                   We use OTP to Login or Register into the App
@@ -83,7 +86,7 @@ const Splash = () => {
                         <Text style={styles.greenText}>Privacy Policy</Text>
                       </Text>
                     </View>
-              </View>
+              </KeyboardAwareScrollView>
             )}
           </Page>
         ))}
@@ -142,33 +145,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 300,
-    height: 300,
+    width: 398,
+    height: 398,
     resizeMode: 'contain',
-    marginBottom: 20,
+    marginBottom: 69,
   },
   text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    fontSize: 19.2,
+    fontWeight: 700,
+    marginBottom: 16 ,
+    color:"#272928",
   },
   subText: {
     paddingTop: 15,
-    fontSize: 18,
+    fontSize: 16,
     paddingBottom:30,
+    color:"#787878",
+    fontWeight:500,
+    textAlign:"center",
   },
   phoneNumberContainer: {
-    width: screenWidth,
-    height: screenHeight,
+    flexGrow: 1, // Important for KeyboardAwareScrollView to scroll content
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    padding: 20,
 
   },
   phoneNumberText: {
-    fontSize: 49,
-    fontWeight: 'semi-bold',
-    marginTop: 100,
+    fontSize: 39,
+    fontWeight: 500,
+    marginTop: 130,
+    color:"#272928",
   },
   phoneInputContainer: {
     marginTop: 20,
@@ -178,12 +184,16 @@ const styles = StyleSheet.create({
   phoneInputTextContainer: {
     backgroundColor: '#F0F0F0',
     borderRadius: 8,
+    borderWidth: 1, // Added border
+    borderColor: '#ccc', // Added border color
   },
   phoneInputTextInput: {
     fontSize: 16,
+    color: 'black', // Ensured text color
   },
   phoneInputCodeText: {
     fontSize: 16,
+    color: 'black', // Ensured code text color
   },
   generateOTPButton: {
     backgroundColor: '#89A97A',
@@ -200,10 +210,14 @@ const styles = StyleSheet.create({
   },
   text2: {
       textAlign: 'center',
-      color: 'black',
+      color: '#B5B5B5',
+      fontWeight:400,
+      fontSize:14,
     },
     greenText: {
-      color: 'green',
+      color: '#89A97A',
+      fontWeight:400,
+      fontSize:14,
     },
 });
 

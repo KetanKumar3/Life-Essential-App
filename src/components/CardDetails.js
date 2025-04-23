@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const { width, height } = Dimensions.get('window');
 
-const Card = ({ time, title, description, imageSource }) => (
-  <View style={styles.card}>
+const cardBackgroundColors = ['#FBE6D5', '#D5E6EA', '#E1EADE', '#F8EFD0']; // Array of background colors
+
+const Card = ({ time, title, description, imageSource, backgroundColor }) => (
+  <View style={[styles.card, { backgroundColor }]}>
     <View style={styles.cardHeader}>
       <Text style={styles.time}>{time}</Text>
       <TouchableOpacity style={styles.logButton}>
+        <FontAwesome name="lock" size={18} color="black" />
         <Text style={styles.logButtonText}>Log this</Text>
       </TouchableOpacity>
     </View>
@@ -22,6 +25,34 @@ const Card = ({ time, title, description, imageSource }) => (
 );
 
 const CardDetails = () => {
+  const cardsData = [
+    {
+      time: "8:40 AM",
+      title: "Berberine HCL",
+      description: "Take 1 serving, 1 x 500mg capsule.",
+      imageSource: require('../assets/image9.png'),
+    },
+    {
+      time: "12:00 PM",
+      title: "Vitamin D3",
+      description: "Take 1 tablet with a meal.",
+      imageSource: require('../assets/image10.png'),
+    },
+    {
+      time: "7:00 PM",
+      title: "Magnesium Glycinate",
+      description: "Take 2 capsules before bed.",
+      imageSource: require('../assets/image11.png'),
+    },
+    {
+      time: "9:00 PM",
+      title: "Melatonin",
+      description: "Take 1 tablet 30 minutes before sleep.",
+      imageSource: require('../assets/image12.png'),
+    },
+    // Add more card data here
+  ];
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.stepsCard}>
@@ -38,30 +69,13 @@ const CardDetails = () => {
 
       <Text style={styles.scheduleTitle}>Today's schedule</Text>
 
-      <Card
-        time="8:40 AM"
-        title="Berberine HCL"
-        description="Take 1 serving, 1 x 500mg capsule."
-        imageSource={require('../assets/image1.png')}
-      />
-      <Card
-        time="8:40 AM"
-        title="Berberine HCL"
-        description="Take 1 serving, 1 x 500mg capsule."
-        imageSource={require('../assets/image1.png')}
-      />
-      <Card
-        time="8:40 AM"
-        title="Berberine HCL"
-        description="Take 1 serving, 1 x 500mg capsule."
-        imageSource={require('../assets/image1.png')}
-      />
-      <Card
-        time="8:40 AM"
-        title="Berberine HCL"
-        description="Take 1 serving, 1 x 500mg capsule."
-        imageSource={require('../assets/image1.png')}
-      />
+      {cardsData.map((card, index) => (
+        <Card
+          key={index}
+          {...card}
+          backgroundColor={cardBackgroundColors[index % cardBackgroundColors.length]}
+        />
+      ))}
 
       {/* Floating Button */}
 
@@ -72,19 +86,20 @@ const CardDetails = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
-    padding: width * 0.03, // Responsive padding
+    backgroundColor: 'white',
+    padding: width * 0.03,
   },
   stepsCard: {
     backgroundColor: '#89A97A',
     padding: width * 0.05,
     borderRadius: 10,
     marginBottom: height * 0.02,
+    height: 151,
   },
   stepsTitle: {
     fontSize: width * 0.07,
-    fontWeight: 'bold',
-    color: 'white',
+    fontWeight: 700,
+    color: '#FFFFFF',
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -102,7 +117,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#5A784C',
     padding: width * 0.02,
     borderRadius: 5,
-    marginTop: height * 0.02,
+    marginTop: 7,
     alignSelf: 'flex-start',
   },
   statsButtonText: {
@@ -110,15 +125,16 @@ const styles = StyleSheet.create({
     fontSize: width * 0.035,
   },
   scheduleTitle: {
-    fontSize: width * 0.06,
-    fontWeight: 'bold',
+    fontSize: 23,
+    fontWeight: 700,
+    color: "#272928",
     marginBottom: height * 0.02,
   },
   card: {
-    backgroundColor: 'white',
     borderRadius: 10,
     padding: width * 0.04,
     marginBottom: height * 0.015,
+    height: 136,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -131,12 +147,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   logButton: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#FFFFFF',
     padding: width * 0.02,
     borderRadius: 5,
+    flexDirection:"row",
+    justifyContent:"center",
+    gap:6,
   },
   logButtonText: {
-    fontSize: width * 0.035,
+    fontSize: 13,
+    fontWeight:500,
+    color:"#272928",
   },
   cardContent: {
     flexDirection: 'row',
@@ -151,14 +172,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: width * 0.045,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: 700,
+    color:"#272928",
   },
   description: {
-    fontSize: width * 0.04,
-    color: 'gray',
+    fontSize: 13,
+    fontWeight:500,
+    color: '#787878',
   },
-
 });
 
 export default CardDetails;

@@ -74,25 +74,25 @@ const navigation = useNavigation();
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding:27,
 
   },
   title: {
-    fontSize: 32, // Adjusted font size
-    fontWeight: 'bold',
-    marginBottom: 30,
-    marginTop:100,
+    fontSize: 39, // Adjusted font size
+    fontWeight: 500,
+    marginBottom: 65,
+    marginTop:131,
   },
   otpContainer: {
     flexDirection: 'row',
     justifyContent: 'center', // Center OTP inputs horizontally
-    marginBottom: 30,
+    marginBottom: 20,
   },
   otpInput: {
     width: screenWidth * 0.12, // Responsive width
     height: screenWidth * 0.12, // Responsive height
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#ADADAD',
     borderRadius: 8,
     marginHorizontal: 8,
     textAlign: 'center',
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: '100%',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 85,
   },
   verifyButtonText: {
     color: 'white',
@@ -114,14 +114,17 @@ const styles = StyleSheet.create({
   resendContainer: {
     flexDirection: 'row',
 
-    marginTop: 20,
+    marginTop: 18,
   },
   resendText: {
-    color: 'black',
+    color: '#787878',
+    fontWeight:500,
+    fontSize:16
   },
   resendLink: {
     color: '#89A97A',
-    fontWeight: 'bold',
+    fontWeight: 700,
+    fontSize:16,
   },
   termsContainer: {
     marginTop: 30,
@@ -129,12 +132,14 @@ const styles = StyleSheet.create({
   },
   termsText: {
     textAlign: 'center',
-    color: 'black',
-    fontSize: 14,
+            color: '#B5B5B5',
+            fontWeight:400,
+            fontSize:14,
   },
   greenText: {
     color: '#89A97A',
-    fontWeight: 'bold',
+            fontWeight:400,
+            fontSize:14,
   },
 });
 

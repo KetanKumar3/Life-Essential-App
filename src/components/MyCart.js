@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -45,8 +47,17 @@ const ProductCard = ({ imageSource, title, price, subscriptionPrice }) => {
 };
 
 const MyCart = () => {
+const navigation = useNavigation()
   return (
     <View style={styles.container}>
+    <View style={styles.headerContainer}>
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+              <MaterialIcons name="arrow-back-ios" size={width * 0.06} color="#272928" style={{ marginLeft: width * 0.02 }} />
+            </TouchableOpacity>
+            <View style={styles.titleContainer}>
+              <Text style={styles.titleText}>Notifications</Text>
+            </View>
+          </View>
       <View style={styles.productList}>
         <Text style={styles.header}>2 items added</Text>
         <ProductCard
@@ -70,6 +81,32 @@ const MyCart = () => {
 };
 
 const styles = StyleSheet.create({
+headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: height * 0.02,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F3F3',
+  },
+  backButton: {
+    padding: width * 0.02,
+    borderWidth: 1,
+    borderColor: '#E6E6E6',
+    borderRadius: width * 0.01,
+    marginLeft: width * 0.04,
+  },
+  titleContainer: {
+    flex: 1,
+
+    marginRight: width * 0.1, // Adjust to center properly with back button
+  },
+  titleText: {
+    fontSize: 19.2,
+    fontWeight: '500',
+    color: '#272928',
+    marginLeft:20,
+  },
   container: {
     flex: 1,
     backgroundColor: '#f9f9f9',

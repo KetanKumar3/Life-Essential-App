@@ -25,9 +25,14 @@ const navigation = useNavigation();
       <Text style={styles.scheduleReminder}>
         Set the schedule so that you don't miss any dose
       </Text>
-      <Text style={styles.termsAndPolicy}>
-        By signing up I agree to the Terms and Conditions and Privacy Policy
-      </Text>
+      <View style={styles.termsContainer}>
+              <Text style={styles.termsText}>
+                By signing up I agree to the{' '}
+                <Text style={styles.greenText}>Terms and Conditions</Text>
+                {' '}and{' '}
+                <Text style={styles.greenText}>Privacy Policy</Text>
+              </Text>
+            </View>
     </View>
   );
 };
@@ -57,48 +62,62 @@ const styles = StyleSheet.create({
     height: width * 0.6, // Keep aspect ratio
   },
   congratulationText: {
-    fontSize: width * 0.07, // Responsive title size
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 27, // Responsive title size
+    fontWeight: 500,
+    color: '#272928',
     textAlign: 'center',
     marginTop: height * 0.03, // Responsive top margin
   },
   messageText: {
-    fontSize: width * 0.045, // Responsive message size
-    color: '#555',
+    fontSize: 16, // Responsive message size
+    fontWeight:500,
+    color: '#787878',
     textAlign: 'center',
     paddingHorizontal: width * 0.1,
     marginTop: height * 0.02, // Responsive top margin
   },
   backHomeButton: {
-    backgroundColor: '#f0f8f0', // Light green background
+
     paddingVertical: height * 0.015, // Responsive vertical padding
     paddingHorizontal: width * 0.08, // Responsive horizontal padding
-    borderRadius: width * 0.02, // Responsive border radius
+    borderRadius: 4, // Responsive border radius
     borderWidth: 1,
-    borderColor: '#a9d1a9', // Light green border
+    borderColor: '#89A97A', // Light green border
     marginTop: height * 0.02, // Responsive top margin
   },
   backHomeText: {
-    fontSize: width * 0.04, // Responsive button text size
-    color: '#333',
-    fontWeight: 'bold',
+    fontSize: 16, // Responsive button text size
+    color: '#89A97A',
+    fontWeight: 500,
   },
   scheduleReminder: {
-    fontSize: width * 0.035, // Responsive reminder size
-    color: '#777',
+    fontSize: 16, // Responsive reminder size
+    fontWeight:500,
+    color: '#787878',
     textAlign: 'center',
     paddingHorizontal: width * 0.1,
     marginTop: height * 0.02, // Responsive top margin
   },
-  termsAndPolicy: {
-    fontSize: width * 0.03, // Responsive terms size
-    color: '#999',
-    textAlign: 'center',
-    position: 'absolute',
-    bottom: height * 0.02, // Responsive bottom margin
-    paddingHorizontal: width * 0.05,
-  },
+
+  termsContainer: {
+
+
+
+          position: 'absolute',
+          bottom: 34, // Responsive bottom margin
+          paddingHorizontal: width * 0.05,
+    },
+    termsText: {
+      textAlign: 'center',
+              color: '#B5B5B5',
+              fontWeight:400,
+              fontSize:14,
+    },
+    greenText: {
+      color: '#89A97A',
+              fontWeight:400,
+              fontSize:14,
+    },
 });
 
 export default CongratulationScreen;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,8 +37,15 @@ const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content}>
-
-        <Text style={styles.question}>Do You want to have your?</Text>
+       <View style={styles.container2}>
+            <TouchableOpacity  style={styles.backButton} onPress={() => navigation.goBack()}>
+              <MaterialIcons name="arrow-back-ios" size={width * 0.06} color="#272928" style={{marginLeft:8}} />
+            </TouchableOpacity>
+            <View style={styles.progressContainer}>
+              <Text style={styles.progressText}>2 Of 2</Text>
+            </View>
+          </View>
+        <Text style={styles.question}>Do You Want to have Your?</Text>
         {options.map((option, index) => (
           <TouchableOpacity
             key={index}
@@ -62,20 +71,45 @@ const navigation = useNavigation();
 };
 
 const styles = StyleSheet.create({
+container2: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+
+    paddingVertical: width * 0.03, // Adjust vertical padding as needed
+    backgroundColor: '#f9f9f9', // Optional background color
+    borderBottomWidth: 1, // Optional bottom border
+    borderBottomColor: '#F3F3F3', // Optional bottom border color
+  },
+  backButton: {
+    padding: width * 0.02,
+    borderWidth:1,
+    borderColor:"#E6E6E6",
+
+  },
+  progressContainer: {
+    // No specific styling needed for the container itself in this layout
+  },
+  progressText: {
+    fontSize: 19.2,
+    fontWeight:500,
+    color: '#272928',
+  },
   container: {
     flex: 1,
     backgroundColor: '#f9f9f9',
   },
   content: {
     flex: 1,
-    padding: width * 0.05,
+    padding: 27,
     paddingBottom: height * 0.15, // Adjust based on button height
   },
   question: {
-    fontSize: width * 0.05,
-    fontWeight: 'bold',
-    marginBottom: height * 0.03,
-    color: '#333',
+    fontSize: 27,
+    fontWeight: 500,
+    marginBottom: 40,
+    color: '#272928',
+    marginTop:40,
   },
   optionButton: {
     borderWidth: 1,
@@ -93,8 +127,9 @@ const styles = StyleSheet.create({
     color: '#555',
   },
   selectedOption: {
-    backgroundColor: '#89A97A', // Light cyan
-    borderColor: '#89A97A1A',
+    backgroundColor: '#89A97A1A', // Light cyan
+    borderColor: '#89A97A',
+    border:2,
   },
   nextButton: {
     backgroundColor: '#89A97A', // Light green

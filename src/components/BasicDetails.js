@@ -84,14 +84,14 @@ const navigation = useNavigation();
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Added to make the content fill the screen
-    padding: 20,
+    padding: 27,
     justifyContent: 'flex-start', // Added to align items from the top
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
-    marginTop: 100,
+    marginBottom: 41,
+    marginTop: 131,
   },
   input: {
     borderWidth: 1,
@@ -157,14 +157,16 @@ const styles = StyleSheet.create({
          bottom:30,
     },
     termsText: {
-      textAlign: 'center',
-      color: 'black',
-      fontSize: 14,
-    },
-    greenText: {
-      color: '#89A97A',
-      fontWeight: 'bold',
-    },
+        textAlign: 'center',
+                color: '#B5B5B5',
+                fontWeight:400,
+                fontSize:14,
+      },
+      greenText: {
+        color: '#89A97A',
+                fontWeight:400,
+                fontSize:14,
+      },
 });
 
 export default BasicDetails;

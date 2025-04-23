@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height:200,
+    height:171,
     resizeMode: 'cover',
   },
   cartIconContainer: {
@@ -106,8 +106,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   title: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: 500,
+    color:"#272928",
     marginTop:8,
     marginLeft:5,
   },
@@ -116,6 +117,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft:5,
     marginBottom:10,
+    fontWeight:500,
+    color:"#272928",
   },
   starContainer: {
     flexDirection: 'row',

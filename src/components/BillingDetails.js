@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -10,7 +11,16 @@ const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
+    <View style={styles.container2}>
+                    <TouchableOpacity  style={styles.backButton} onPress={() => navigation.goBack()}>
+                      <MaterialIcons name="arrow-back-ios" size={width * 0.06} color="#272928" style={{marginLeft:8}} />
+                    </TouchableOpacity>
+                    <View style={styles.progressContainer}>
+                      <Text style={styles.progressText}>Edit Address</Text>
+                    </View>
+                  </View>
       <ScrollView style={styles.content}>
+
         <Text style={styles.label}>Full Name</Text>
         <TextInput style={styles.input} placeholder="Enter your full name" />
 
@@ -29,7 +39,7 @@ const navigation = useNavigation();
             <TextInput style={styles.input} placeholder="Enter pincode" keyboardType="number-pad" />
           </View>
           <TouchableOpacity style={styles.locationButton}>
-            <View style={styles.locationIcon} />
+            <MaterialIcons name="my-location"   size={20} style={{color:"#89A97A"}} />
             <Text style={styles.locationText}>Get my location</Text>
           </TouchableOpacity>
         </View>
@@ -51,16 +61,43 @@ const navigation = useNavigation();
         <Text style={styles.label}>State</Text>
         <TextInput style={styles.inputs}
          placeholder="Enter state" />
+
+        <TouchableOpacity style={styles.checkoutButton} onPress={()=>{navigation.navigate("CongratulationScreen")}}>
+                    <Text style={styles.checkoutButtonText}>Make Payment</Text>
+                  </TouchableOpacity>
       </ScrollView>
 
-    <TouchableOpacity style={styles.checkoutButton} onPress={()=>{navigation.navigate("CongratulationScreen")}}>
-            <Text style={styles.checkoutButtonText}>Make Payment</Text>
-          </TouchableOpacity>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+container2: {
+    marginLeft:24,
+    flexDirection: 'row',
+    alignItems:"center",
+    marginTop:27,
+    paddingVertical: width * 0.03, // Adjust vertical padding as needed
+    backgroundColor: 'white', // Optional background color
+    borderBottomWidth: 1, // Optional bottom border
+    borderBottomColor: '#F3F3F3', // Optional bottom border color
+  },
+  backButton: {
+    padding: width * 0.02,
+    borderWidth:1,
+    borderColor:"#E6E6E6",
+
+  },
+  progressContainer: {
+    // No specific styling needed for the container itself in this layout
+  },
+  progressText: {
+    fontSize: 19.2,
+    fontWeight:500,
+    color: '#272928',
+    marginLeft:15,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -68,7 +105,7 @@ const styles = StyleSheet.create({
   content: {
 
     flex: 1,
-    padding: width * 0.04,
+    paddingHorizontal: 24,
     paddingBottom: height * 0.1, // Adjust based on the payment button height
   },
   label: {
@@ -92,15 +129,16 @@ const styles = StyleSheet.create({
       padding: width * 0.03,
       fontSize: width * 0.04,
       color: '#555',
-      marginBottom:150,
+      marginBottom:30,
     },
   multilineInput: {
     minHeight: height * 0.1,
     textAlignVertical: 'top',
   },
   infoText: {
-    fontSize: width * 0.035,
-    color: '#777',
+    fontSize: 12,
+    fontWeight:500,
+    color: '#89A97A',
     marginTop: height * 0.02,
     marginBottom: height * 0.01,
   },
@@ -115,32 +153,35 @@ const styles = StyleSheet.create({
     marginRight: width * 0.02, // Add some spacing between input and button
   },
   locationButton: {
-    backgroundColor: '#89A97A', // Dark sea green
-    borderRadius: width * 0.015,
+    backgroundColor: '#89A97A1A',
+    borderRadius: 8,
+    borderColor:"#89A97A",
+    borderWidth:1,
     paddingVertical: height * 0.012,
     paddingHorizontal: width * 0.025,
     flexDirection: 'row',
     alignItems: 'center',
+    gap:3,
   },
   locationIcon: {
     width: width * 0.04,
     height: width * 0.04,
-    borderRadius: width * 0.02,
-    backgroundColor: '#89A97A', // Light sea green
+    borderRadius: 8,
+    backgroundColor: '#89A97A1A', // Light sea green
     marginRight: width * 0.015,
+    borderWidth:1,
+    borderColor:"#89A97A",
   },
   locationText: {
-    color: 'white',
-    fontSize: width * 0.035,
+    color: '#89A97A',
+    fontSize: 13,
+    fontWeight:500,
   },
   checkoutButton: {
       backgroundColor: '#89A97A', // Dark sea green
       paddingVertical: height * 0.02,
       alignItems: 'center',
-      position: 'absolute',
-      bottom: 30,
-      left: "4%",
-      right: "4%",
+      marginBottom:30,
     },
     checkoutButtonText: {
       color: 'white',

@@ -20,7 +20,7 @@ const navigation = useNavigation();
           position: 'absolute',
           elevation: 5,
           backgroundColor: '#ffffff',
-          borderRadius: 15,
+
           height: 90
 
         },
@@ -30,22 +30,13 @@ const navigation = useNavigation();
         name="Home"
         component={Home}
         options={{
-
-          headerTitle: '', // Remove default title
-          headerLeft: () => (
-             <Text style={styles.headerLeftText}>Welcome back,</Text>
-          ),
-          headerRight: () => (
-             <TouchableOpacity style={styles.headerRightContainer} onPress={() => navigation.navigate('Notifications')}>
-                  <Ionicons name="notifications" size={20} color="black" />
-             </TouchableOpacity>
-          ),
-          tabBarIcon: ({ focused }) => (
-            <View style={styles.tabItem}>
-              <Ionicons name="home" size={24} color={focused ? '#89A97A' : 'black'} />
-              <Text style={[styles.tabLabel, { color: focused ? '#89A97A' : 'black' }]}>Home</Text>
-            </View>
-          ),
+        headerShown:false,
+        tabBarIcon: ({ focused }) => (
+                    <View style={styles.tabItem}>
+                      <MaterialCommunityIcons name="home" size={24} color={focused ? '#89A97A' : 'black'} />
+                      <Text style={[styles.tabLabel, { color: focused ? '#89A97A' : 'black' }]}>Home</Text>
+                    </View>
+                  ),
         }}
       />
       <Tab.Screen
