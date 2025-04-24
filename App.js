@@ -30,6 +30,7 @@ const App = () => {
 return(
 <NavigationContainer>
       <Stack.Navigator>
+
       <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
       <Stack.Screen name="OtpVerification" component={OtpVerification} options={{ headerShown: false }} />
       <Stack.Screen name="BasicDetails" component={BasicDetails} options={{ headerShown: false }} />

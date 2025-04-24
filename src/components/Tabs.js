@@ -19,9 +19,10 @@ const navigation = useNavigation();
         tabBarStyle: {
           position: 'absolute',
           elevation: 5,
-          backgroundColor: '#ffffff',
-
-          height: 90
+         height:100,
+         justifyContent:"center",
+         alignItems:"center",
+         backgroundColor:"white",
 
         },
       }}
@@ -89,8 +90,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width:100,
+    marginTop:50,
     height:90,
-    marginTop:40
+
   },
   tabLabel: {
     fontSize: 15,

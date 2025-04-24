@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#89A97A', // Match the green background
       paddingHorizontal: 20,
-      paddingVertical: 24,
+      paddingVertical: 20,
     },
     greetingContainer: {
       flexDirection: 'column',

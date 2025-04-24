@@ -35,6 +35,13 @@ const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Enter OTP</Text>
+      <View style={{marginBottom:65}}>
+              <Text style={{color:"#787878",fontWeight:500,fontSize:16}}>
+                Enter the OTP sent to{' '}
+                <Text style={{color:"#89A97A",fontSize:16,fontWeight:700}}>+1234567890</Text>
+
+              </Text>
+            </View>
       <View style={styles.otpContainer}>
         {otp.map((digit, index) => (
           <TextInput
@@ -74,18 +81,18 @@ const navigation = useNavigation();
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding:27,
-
+    paddingHorizontal:27,
+    backgroundColor:"white",
   },
   title: {
     fontSize: 39, // Adjusted font size
     fontWeight: 500,
-    marginBottom: 65,
+    marginBottom: 21,
     marginTop:131,
   },
   otpContainer: {
     flexDirection: 'row',
-    justifyContent: 'center', // Center OTP inputs horizontally
+    justifyContent: 'space-between',
     marginBottom: 20,
   },
   otpInput: {
@@ -94,7 +101,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ADADAD',
     borderRadius: 8,
-    marginHorizontal: 8,
+
     textAlign: 'center',
     fontSize: 20,
   },

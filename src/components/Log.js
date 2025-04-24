@@ -16,7 +16,7 @@ const Log = () => {
           <MaterialIcons name="arrow-back-ios" size={screenWidth * 0.06} color="#272928" style={{marginLeft:6}} />
         </TouchableOpacity>
         <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Notifications</Text>
+          <Text style={styles.titleText}>My Logs</Text>
         </View>
       </View>
       <ScrollView style={{ marginBottom: 100 }}>

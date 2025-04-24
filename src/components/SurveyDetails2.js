@@ -97,7 +97,7 @@ container2: {
   },
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'white',
   },
   content: {
     flex: 1,
