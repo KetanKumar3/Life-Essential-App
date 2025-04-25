@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Splash from './src/components/Splash';
 import OtpVerification from './src/components/OtpVerification';
 import BasicDetails from './src/components/BasicDetails';
@@ -22,16 +22,27 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Tabs from './src/components/Tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { TouchableOpacity,StyleSheet,View,Text } from 'react-native';
-
+import Profile from './src/components/Profile';
+import SplashScreen from './src/components/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+const [isSplashScreenVisible, setIsSplashScreenVisible] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSplashScreenVisible(false);
+    }, 3000); // Hide SplashScreen after 3 seconds
+  }, []);
 return(
 <NavigationContainer>
       <Stack.Navigator>
-
-      <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+      {isSplashScreenVisible ? (
+                <Stack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown:false}} />
+              ) : (
+                <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+              )}
       <Stack.Screen name="OtpVerification" component={OtpVerification} options={{ headerShown: false }} />
       <Stack.Screen name="BasicDetails" component={BasicDetails} options={{ headerShown: false }} />
       <Stack.Screen name="SurveyDetails" component={SurveyDetails}
@@ -67,34 +78,16 @@ return(
       <Stack.Screen name="MainTabs" component={Tabs} options={{ headerShown: false }} />
       <Stack.Screen name="MedicineSchedule" component={MedicineSchedule}
        options={{
-                                                     headerTitle: '',
-
-                                                      headerLeft: () => {
-                                                        const navigation = useNavigation();
-                                                        return (
-                                                          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerContainer}> // Use goBack()
-                                                            <MaterialIcons name="arrow-back-ios" size={20} color="black" style={{ marginLeft: 2 }} />
-                                                          </TouchableOpacity>
-                                                        );
-                                                      },
+                                                     headerShown: false ,
 
                                           }}
        />
       <Stack.Screen name="MedicineSchedule2" component={MedicineSchedule2}
        options={{
-                                                     headerTitle: '',
-
-                                                      headerLeft: () => {
-                                                        const navigation = useNavigation();
-                                                        return (
-                                                          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerContainer}> // Use goBack()
-                                                            <MaterialIcons name="arrow-back-ios" size={20} color="black" style={{ marginLeft: 2 }} />
-                                                          </TouchableOpacity>
-                                                        );
-                                                      },
-
+                                                     headerShown: false ,
                                           }}
        />
+       <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       </Stack.Navigator>
 </NavigationContainer>
 );

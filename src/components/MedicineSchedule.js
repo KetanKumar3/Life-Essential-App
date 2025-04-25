@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -30,23 +31,55 @@ const MedicineItem = () => {
 };
 
 const MedicineSchedule = () => {
+  const navigation = useNavigation();
   const numberOfItems = 5; // You can change this number
 
+  const handleGoBack = () => {
+    navigation.goBack();
+  };
+
   return (
-    <ScrollView style={styles.container}>
-      {Array.from({ length: numberOfItems }).map((_, index) => (
-        <MedicineItem key={index} />
-      ))}
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
+          <Ionicons name="chevron-back" size={width * 0.06} color="black" />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Supplement Schedule</Text>
+      </View>
+      <ScrollView style={styles.container}>
+        {Array.from({ length: numberOfItems }).map((_, index) => (
+          <MedicineItem key={index} />
+        ))}
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: width * 0.03,
+    backgroundColor: 'white',
+    paddingHorizontal: width * 0.04, // Added horizontal padding for consistency
+  },
+  backButton: {
+    padding: width * 0.02,
+    borderWidth: 1,
+    borderColor: "#E6E6E6",
+    borderRadius: width * 0.01,
+    marginRight:20, // Added some spacing between back button and title
+  },
+  headerTitle: {
+    fontSize: 19.2,
+    fontWeight: '500',
+    color: '#272928',
+  },
   container: {
-    flex: 1, // Added flex: 1 to make the ScrollView take up the screen
+    flex: 1,
     backgroundColor: '#f9f9f9',
-    paddingHorizontal: width * 0.05, // Use percentage for responsive padding
-    paddingTop: height * 0.02, // Use percentage for responsive top padding
+    paddingHorizontal: width * 0.05,
+    paddingTop: height * 0.02,
   },
   medicineRow: {
     flexDirection: 'row',
@@ -59,7 +92,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
-    marginBottom: height * 0.015, // Added margin between items
+    marginBottom: height * 0.015,
   },
   imageContainer: {
     marginRight: width * 0.04,

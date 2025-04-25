@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -26,6 +28,12 @@ const ReminderButton = ({ time, isSelected, onPress }) => (
 );
 
 const MedicineSchedule2 = () => {
+const navigation = useNavigation();
+
+const handleGoBack = () => {
+  navigation.goBack();
+};
+
   const [selectedMorningTime, setSelectedMorningTime] = useState(null);
   const [selectedAfterNoonTime, setSelectedAfterNoonTime] = useState(null);
   const [selectedNightTime, setSelectedNightTime] = useState('6 AM'); // Default night time
@@ -49,12 +57,19 @@ const MedicineSchedule2 = () => {
 
   return (
     <View style={styles.container}>
+    <View style={styles.header}>
+            <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
+              <Ionicons name="chevron-back" size={width * 0.06} color="black" />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>Supplement Schedule</Text>
+          </View>
       <ScrollView style={styles.content}>
 
 
 
         {/* Medicine Image */}
         <View style={styles.imageContainer}>
+
           <Image
             source={require('../assets/image1.png')} // Replace with your image path
             style={styles.medicineImage}
@@ -155,6 +170,25 @@ const MedicineSchedule2 = () => {
 };
 
 const styles = StyleSheet.create({
+header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: width * 0.03,
+    backgroundColor: 'white',
+    paddingHorizontal: width * 0.04, // Added horizontal padding for consistency
+  },
+  backButton: {
+    padding: width * 0.02,
+    borderWidth: 1,
+    borderColor: "#E6E6E6",
+    borderRadius: width * 0.01,
+    marginRight:20, // Added some spacing between back button and title
+  },
+  headerTitle: {
+    fontSize: 19.2,
+    fontWeight: '500',
+    color: '#272928',
+  },
   container: {
     flex: 1,
     backgroundColor: 'white', // Light blue background

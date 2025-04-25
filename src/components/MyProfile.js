@@ -66,7 +66,7 @@ const MyProfile = () => {
       </View>
 
       {/* My profile starts */}
-      <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
         <View style={myProfileStyles.container}>
           <View style={myProfileStyles.iconBackground}>
             <Ionicons name="person" size={width * 0.06} color="black" />
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
   },
   billingText: {
     fontSize: width * 0.035,
-    color: '#777',
+    color: '#333',
   },
   checkmark: {
     position: 'absolute',

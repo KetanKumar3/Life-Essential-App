@@ -163,12 +163,12 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     color: "#272928",
     marginTop: 8,
-    marginLeft: 5,
+    marginLeft: 10,
   },
   priceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 5,
+    marginHorizontal: 10,
     marginTop: 5,
     marginBottom: 10,
   },
@@ -182,12 +182,13 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: "#787878",
     marginLeft: 5,
+
   },
   starContainer: {
     flexDirection: 'row',
     gap: 5,
     marginTop: 5,
-    marginLeft: 5,
+    marginLeft: 10,
   },
 });
 

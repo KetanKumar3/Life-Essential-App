@@ -71,8 +71,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   pageViewImage: {
-    width: screenWidth * 0.9,
-    height: 166,
+
   },
 });
 

@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TextInput,TouchableOpacity } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity } from 'react-native';
 import PhoneNumberScreen from './PhoneNumberScreen';
-
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -9,11 +8,8 @@ const Page = ({ children }) => {
   return <View style={styles.page}>{children}</View>;
 };
 
-
 const Splash = () => {
-
   const [currentPage, setCurrentPage] = useState(0);
-
   const scrollViewRef = useRef();
   const phoneInputRef = useRef(null);
   const pageCount = 4; // Number of pages
@@ -23,11 +19,12 @@ const Splash = () => {
     setCurrentPage(page);
   };
 
-
-
-
-
-
+  // Scroll to the first page on component mount (as a fallback)
+  useEffect(() => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false });
+    }
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -39,6 +36,7 @@ const Splash = () => {
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
+
         {[...Array(pageCount)].map((_, index) => (
           <Page key={index}>
             {index === 0 && (
@@ -46,7 +44,6 @@ const Splash = () => {
                 <Image source={require('../assets/image2.png')} style={styles.image} resizeMode="contain" />
                 <Text style={styles.text}>Welcome to our app!</Text>
                 <Text style={styles.subText}>Discover amazing features.</Text>
-
               </View>
             )}
             {index === 1 && (
@@ -63,14 +60,14 @@ const Splash = () => {
                 <Text style={styles.subText}>Join our community.</Text>
               </View>
             )}
-            {index === 3 && (
+            {index === 3 && currentPage === 3 && ( // <-- Render only when on page 3
               <View style={styles.phoneNumberContainer}>
                 <PhoneNumberScreen />
-
               </View>
             )}
           </Page>
         ))}
+
       </ScrollView>
 
       {currentPage < pageCount - 1 && ( // Hide dots on the last page
@@ -93,7 +90,7 @@ const Splash = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"white",
+    backgroundColor: "white",
   },
   page: {
     width: screenWidth,
@@ -149,11 +146,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center', // Center items horizontally
     paddingHorizontal: 27, // Responsive horizontal padding
-    paddingTop:130,
+    paddingTop: 130,
   },
-
-
-
   generateOTPButton: {
     backgroundColor: '#4CAF50', // Example green color
     width: '100%',
@@ -168,7 +162,6 @@ const styles = StyleSheet.create({
     fontSize: screenWidth * 0.05,
     fontWeight: 'bold',
   },
-
 });
 
 export default Splash;

@@ -77,7 +77,7 @@ container2: {
     justifyContent: 'space-between',
 
     paddingVertical: width * 0.03, // Adjust vertical padding as needed
-    backgroundColor: '#f9f9f9', // Optional background color
+    backgroundColor: 'white', // Optional background color
     borderBottomWidth: 1, // Optional bottom border
     borderBottomColor: '#F3F3F3', // Optional bottom border color
   },
