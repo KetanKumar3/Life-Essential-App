@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { View, Text, Switch, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
 const SwitchItem = ({ label, enabledLabel, disabledLabel }) => {
+
   const [isEnabled, setIsEnabled] = useState(true);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -24,8 +27,19 @@ const SwitchItem = ({ label, enabledLabel, disabledLabel }) => {
 };
 
 const EnableOrDisable = () => {
+const navigation = useNavigation();
+
+const handleGoBack = () => {
+    navigation.goBack();
+  };
   return (
     <ScrollView style={styles.container}>
+    <View style={styles.header}>
+              <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
+                <Ionicons name="chevron-back" size={width * 0.06} color="black" />
+              </TouchableOpacity>
+              <Text style={styles.headerTitle}>Enable or disable</Text>
+            </View>
       <SwitchItem label="Pedometer" enabledLabel="Enable" disabledLabel="Disable" />
       <SwitchItem label="Schedule remainder" enabledLabel="Enable" disabledLabel="Disable" />
       <SwitchItem label="Notifications" enabledLabel="Enable" disabledLabel="Disable" />
@@ -41,6 +55,27 @@ const styles = StyleSheet.create({
     padding: width * 0.04,
     backgroundColor: '#f9f9f9',
   },
+  header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+
+      paddingVertical: width * 0.03,
+
+      backgroundColor: 'white',
+      marginBottom:10,
+    },
+    backButton: {
+      padding: width * 0.02,
+      borderWidth: 1,
+      borderColor: "#E6E6E6",
+      borderRadius: width * 0.01, // Added border radius for visual consistency
+    },
+    headerTitle: {
+      fontSize: width * 0.05, // Made font size responsive
+      fontWeight: '500',
+      color: '#272928',
+      marginLeft: width * 0.05, // Made marginLeft responsive
+    },
   switchItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',

@@ -144,7 +144,7 @@ const MyProfile = () => {
       {/* supplement end */}
 
       {/* notification start */}
-      <TouchableOpacity onPress={() => { navigation.navigate('Notifications') }}>
+      <TouchableOpacity onPress={() => { navigation.navigate('EnableOrDisable') }}>
         <View style={myProfileStyles.container}>
           <View style={myProfileStyles.iconBackground}>
             <Ionicons name="notifications-outline" size={width * 0.06} color="black" />
