@@ -19,7 +19,7 @@ const Profile = () => {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1 }}
+      style={{ flex: 1,backgroundColor:"white" }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -50}
     >
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: width * 0.07, // Made padding responsive
     justifyContent: 'flex-start',
-    backgroundColor: "white",
+
   },
   input: {
     borderWidth: 1,

@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    paddingHorizontal: width * 0.04,
+    paddingHorizontal: 10,
     paddingTop: height * 0.02,
   },
   card: {

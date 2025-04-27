@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, TextInput, StyleSheet, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
 import {useNavigation} from '@react-navigation/native';
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -33,7 +35,7 @@ const navigation = useNavigation();
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAwareScrollView style={styles.container}>
       <Text style={styles.title}>Enter OTP</Text>
       <View style={{marginBottom:65}}>
               <Text style={{color:"#787878",fontWeight:500,fontSize:16}}>
@@ -74,7 +76,7 @@ const navigation = useNavigation();
           <Text style={styles.greenText}>Privacy Policy</Text>
         </Text>
       </View>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 

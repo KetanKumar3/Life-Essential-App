@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
+import { KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
 import { useNavigation } from '@react-navigation/native';
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -13,8 +15,8 @@ const BasicDetails = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }} // Ensure KeyboardAvoidingView takes up the whole screen
+    <KeyboardAwareScrollView
+      style={{ flex: 1,backgroundColor:"white" }} // Ensure KeyboardAvoidingView takes up the whole screen
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'} // Adjust behavior based on platform
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -50} // Adjust offset if needed
     >
@@ -83,7 +85,7 @@ const BasicDetails = () => {
           </Text>
         </View>
       </View>
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 27,
     justifyContent: 'flex-start',
-    backgroundColor:"white",
+
   },
   title: {
     fontSize: 24,
