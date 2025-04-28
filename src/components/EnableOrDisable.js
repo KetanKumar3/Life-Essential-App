@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
       paddingVertical: width * 0.03,
 
-      backgroundColor: 'white',
+
       marginBottom:10,
     },
     backButton: {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     paddingVertical: height * 0.02,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
-    paddingHorizontal:20,
+    paddingHorizontal:15,
   },
   label: {
     fontSize: width * 0.040,

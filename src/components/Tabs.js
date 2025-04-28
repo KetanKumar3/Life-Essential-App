@@ -46,7 +46,7 @@ const navigation = useNavigation();
         options={{
           headerShown:false,
           tabBarIcon: ({ focused }) => (
-            <View style={styles.tabItem}>
+            <View style={styles.tabItem}  >
               <Ionicons name="apps" size={24} color={focused ? '#89A97A' : 'black'} />
               <Text style={[styles.tabLabel, { color: focused ? '#89A97A' : 'black' }]}>Shop</Text>
             </View>

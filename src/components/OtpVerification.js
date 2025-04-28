@@ -5,9 +5,9 @@ import { KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import {useNavigation} from '@react-navigation/native';
 const { width: screenWidth } = Dimensions.get('window');
 
-const OtpVerification = () => {
+const OtpVerification = ({ route }) => {
 const navigation = useNavigation();
-
+const { Number } = route.params;
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const inputRefs = useRef([]);
 
@@ -40,7 +40,7 @@ const navigation = useNavigation();
       <View style={{marginBottom:65}}>
               <Text style={{color:"#787878",fontWeight:500,fontSize:16}}>
                 Enter the OTP sent to{' '}
-                <Text style={{color:"#89A97A",fontSize:16,fontWeight:700}}>+1234567890</Text>
+                <Text style={{color:"#89A97A",fontSize:16,fontWeight:700}}>{Number}</Text>
 
               </Text>
             </View>
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
   termsContainer: {
     marginTop: 30,
     marginHorizontal: 40,
+    marginBottom:20,
   },
   termsText: {
     textAlign: 'center',

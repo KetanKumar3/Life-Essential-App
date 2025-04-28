@@ -24,6 +24,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { TouchableOpacity,StyleSheet,View,Text } from 'react-native';
 import Profile from './src/components/Profile';
 import SplashScreen from './src/components/SplashScreen';
+import ProductDescription from './src/components/ProductDescription';
 
 const Stack = createNativeStackNavigator();
 
@@ -89,6 +90,7 @@ return(
        />
        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="EnableOrDisable" component={EnableOrDisable} options={{ headerShown: false }} />
+      <Stack.Screen name="ProductDescription" component={ProductDescription} options={{ headerShown: false }} />
       </Stack.Navigator>
 </NavigationContainer>
 );

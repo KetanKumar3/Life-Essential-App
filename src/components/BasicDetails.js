@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
-import { KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions, Platform } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -16,9 +15,9 @@ const BasicDetails = () => {
 
   return (
     <KeyboardAwareScrollView
-      style={{ flex: 1,backgroundColor:"white" }} // Ensure KeyboardAvoidingView takes up the whole screen
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} // Adjust behavior based on platform
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -50} // Adjust offset if needed
+      style={{ flex: 1, backgroundColor: "white" }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -50}
     >
       <View style={styles.container}>
         <Text style={styles.title}>Basic Info</Text>
@@ -46,7 +45,7 @@ const BasicDetails = () => {
             ]}
             onPress={() => handleGenderSelect('Male')}
           >
-            <Text style={styles.genderText}>Male</Text>
+            <Text style={[styles.genderText, selectedGender === 'Male' && styles.selectedGenderTextColor]}>Male</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -56,7 +55,7 @@ const BasicDetails = () => {
             ]}
             onPress={() => handleGenderSelect('Female')}
           >
-            <Text style={styles.genderText}>Female</Text>
+            <Text style={[styles.genderText, selectedGender === 'Female' && styles.selectedGenderTextColor]}>Female</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -66,16 +65,14 @@ const BasicDetails = () => {
             ]}
             onPress={() => handleGenderSelect('Others')}
           >
-            <Text style={styles.genderText}>Others</Text>
+            <Text style={[styles.genderText, selectedGender === 'Others' && styles.selectedGenderTextColor]}>Others</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Move the Done button out of the absolutely positioned area */}
         <TouchableOpacity style={styles.doneButton} onPress={() => { navigation.navigate("SurveyDetails") }}>
           <Text style={styles.doneButtonText}>Done</Text>
         </TouchableOpacity>
 
-        {/* Move the terms and conditions out of the absolutely positioned area */}
         <View style={styles.termsContainer}>
           <Text style={styles.termsText}>
             By signing up I agree to the{' '}
@@ -94,7 +91,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 27,
     justifyContent: 'flex-start',
-
   },
   title: {
     fontSize: 24,
@@ -131,6 +127,9 @@ const styles = StyleSheet.create({
   selectedGenderButton: {
     backgroundColor: '#89A97A',
     borderColor: '#89A97A',
+  },
+  selectedGenderTextColor: {
+    color: "white",
   },
   genderText: {
     color: 'black',

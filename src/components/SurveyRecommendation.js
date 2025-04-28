@@ -86,7 +86,7 @@ container2: {
     marginLeft:24,
     flexDirection: 'row',
     alignItems:"center",
-    marginTop:27,
+
     paddingVertical: width * 0.03, // Adjust vertical padding as needed
     backgroundColor: '#f9f9f9', // Optional background color
     borderBottomWidth: 1, // Optional bottom border

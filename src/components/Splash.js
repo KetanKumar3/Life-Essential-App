@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity } from 'react-native';
 import PhoneNumberScreen from './PhoneNumberScreen';
+import { KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -27,7 +28,7 @@ const Splash = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <KeyboardAwareScrollView style={styles.container}>
       <ScrollView
         ref={scrollViewRef}
         horizontal={true}
@@ -83,7 +84,7 @@ const Splash = () => {
           ))}
         </View>
       )}
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 

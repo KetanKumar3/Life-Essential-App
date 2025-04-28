@@ -65,7 +65,7 @@ const navigation = useNavigation();
       <ScrollView style={styles.container}>
         <View style={styles.productsGrid}>
           {products.map((product, index) => (
-            <View key={index} style={styles.productContainer}>
+            <TouchableOpacity key={index} style={styles.productContainer} onPress={()=>{navigation.navigate("ProductDescription")}}>
               <View style={styles.imageContainer}>
                 <Image source={product.image} style={styles.image} />
                 <View style={styles.cartIconContainer}>
@@ -86,7 +86,7 @@ const navigation = useNavigation();
                 </Text>
 
               </View>
-            </View>
+            </TouchableOpacity>
           ))}
         </View>
       </ScrollView>

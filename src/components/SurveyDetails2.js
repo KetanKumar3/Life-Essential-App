@@ -101,7 +101,7 @@ container2: {
   },
   content: {
     flex: 1,
-    padding: 27,
+    paddingHorizontal: 27,
     paddingBottom: height * 0.15, // Adjust based on button height
   },
   question: {

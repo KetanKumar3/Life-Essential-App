@@ -55,7 +55,7 @@ const navigation = useNavigation()
               <MaterialIcons name="arrow-back-ios" size={width * 0.06} color="#272928" style={{ marginLeft: width * 0.02 }} />
             </TouchableOpacity>
             <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>Notifications</Text>
+              <Text style={styles.titleText}>My Cart</Text>
             </View>
           </View>
       <View style={styles.productList}>
@@ -109,7 +109,7 @@ headerContainer: {
   },
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'white',
   },
   productList: {
     flex: 1,
@@ -119,6 +119,7 @@ headerContainer: {
     fontSize: width * 0.045,
     fontWeight: 'bold',
     marginBottom: height * 0.02,
+    marginLeft:10,
   },
   productCard: {
     flexDirection: 'row',

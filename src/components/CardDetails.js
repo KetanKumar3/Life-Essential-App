@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     color: "#272928",
     marginBottom: height * 0.02,
+    marginLeft:12,
   },
   card: {
     borderRadius: 10,

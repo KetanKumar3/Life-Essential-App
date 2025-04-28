@@ -9,7 +9,7 @@ const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.closeButton}>
+      <TouchableOpacity style={styles.closeButton} onPress={()=> {navigation.navigate("MainTabs")} } >
         <Text style={styles.closeIcon}>X</Text>
       </TouchableOpacity>
       <Image
