@@ -46,6 +46,7 @@ const PageViewComponent = () => {
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
         scrollEventThrottle={16}
+        style={styles.scrollView} // Apply style to the ScrollView
       >
         {images.map((image, index) => (
           <View key={index} style={styles.pageViewContainer}>
@@ -53,6 +54,18 @@ const PageViewComponent = () => {
           </View>
         ))}
       </ScrollView>
+      {/* Green indicator below the PageView */}
+      <View style={styles.indicatorContainer}>
+        {images.map((_, index) => (
+          <View
+            key={index}
+            style={[
+              styles.indicator,
+              currentPage === index && styles.indicatorActive,
+            ]}
+          />
+        ))}
+      </View>
     </View>
   );
 };
@@ -61,6 +74,9 @@ const styles = StyleSheet.create({
   container: {
     width: screenWidth,
     alignItems: 'center',
+  },
+  scrollView: {
+    backgroundColor: 'white', // Ensure the ScrollView background is white
   },
   pageViewContainer: {
     width: screenWidth * 0.9,
@@ -72,6 +88,23 @@ const styles = StyleSheet.create({
   },
   pageViewImage: {
 
+  },
+  indicatorContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 10,
+    width: screenWidth,
+  },
+  indicator: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'grey',
+    marginHorizontal: 5,
+  },
+  indicatorActive: {
+    backgroundColor: '#89A97A',
   },
 });
 

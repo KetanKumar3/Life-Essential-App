@@ -9,7 +9,7 @@ const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.closeButton} onPress={()=> {navigation.navigate("MainTabs")} } >
+      <TouchableOpacity style={styles.closeButton} onPress={()=> {navigation.navigate("Home")} } >
         <Text style={styles.closeIcon}>X</Text>
       </TouchableOpacity>
       <Image
@@ -19,7 +19,7 @@ const navigation = useNavigation();
       />
       <Text style={styles.congratulationText}>Congratulation!!</Text>
       <Text style={styles.messageText}>You have taken a big step in improving your health!</Text>
-      <TouchableOpacity style={styles.backHomeButton} onPress={()=>{navigation.navigate("MainTabs")}} >
+      <TouchableOpacity style={styles.backHomeButton} onPress={()=>{navigation.navigate("Home")}} >
         <Text style={styles.backHomeText}>Back to home</Text>
       </TouchableOpacity>
       <Text style={styles.scheduleReminder}>

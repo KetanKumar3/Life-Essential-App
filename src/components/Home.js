@@ -7,6 +7,7 @@ import CustomCalendar from './CustomCalendar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
+import CustomTabbar from './CustomTabbar';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -40,7 +41,9 @@ const navigation = useNavigation()
         <TouchableOpacity style={styles.floatingButton}>
           <Image source={require('../assets/scan.png')} style={styles.floatingButtonIcon} />
         </TouchableOpacity>
+
       </View>
+      <CustomTabbar/>
     </View>
   );
 };

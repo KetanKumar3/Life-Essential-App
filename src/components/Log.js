@@ -5,6 +5,7 @@ import CustomCalendar from './CustomCalendar';
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 import { useNavigation } from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import CustomTabbar from './CustomTabbar';
 
 const Log = () => {
   const navigation = useNavigation();
@@ -25,6 +26,7 @@ const Log = () => {
         </View>
         <CardDetails2 />
       </ScrollView>
+      <CustomTabbar />
     </View>
   );
 };

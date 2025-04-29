@@ -25,6 +25,9 @@ import { TouchableOpacity,StyleSheet,View,Text } from 'react-native';
 import Profile from './src/components/Profile';
 import SplashScreen from './src/components/SplashScreen';
 import ProductDescription from './src/components/ProductDescription';
+import Shop from './src/components/Shop';
+import Log from './src/components/Log';
+import MyOrder from './src/components/MyOrder';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +42,7 @@ const [isSplashScreenVisible, setIsSplashScreenVisible] = useState(true);
 return(
 <NavigationContainer>
       <Stack.Navigator>
+
       {isSplashScreenVisible ? (
                 <Stack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown:false}} />
               ) : (
@@ -76,7 +80,7 @@ return(
 
                             }}
        />
-      <Stack.Screen name="MainTabs" component={Tabs} options={{ headerShown: false }} />
+
       <Stack.Screen name="MedicineSchedule" component={MedicineSchedule}
        options={{
                                                      headerShown: false ,
@@ -91,6 +95,11 @@ return(
        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="EnableOrDisable" component={EnableOrDisable} options={{ headerShown: false }} />
       <Stack.Screen name="ProductDescription" component={ProductDescription} options={{ headerShown: false }} />
+      <Stack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
+      <Stack.Screen name="Log" component={Log} options={{ headerShown: false }} />
+      <Stack.Screen name="MyProfile" component={MyProfile} options={{ headerShown: false }} />
+      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="MyOrder" component={MyOrder} options={{ headerShown: false }} />
       </Stack.Navigator>
 </NavigationContainer>
 );

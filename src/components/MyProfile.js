@@ -105,7 +105,7 @@ const MyProfile = () => {
       {/* My cart ends */}
 
       {/* my order starts */}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => { navigation.navigate('MyOrder') }}>
         <View style={myProfileStyles.container}>
           <View style={myProfileStyles.iconBackground}>
             <MaterialCommunityIcons name="cube-outline" size={width * 0.06} color="black" />
@@ -170,7 +170,7 @@ const MyProfile = () => {
       {/* pedometer end */}
 
       {/* signOut start */}
-      <TouchableOpacity style={{ marginBottom:100 }}>
+      <TouchableOpacity style={{ marginBottom:20 }}>
         <View style={myProfileStyles.container}>
           <View style={myProfileStyles.iconBackground}>
             <MaterialIcons name="logout" size={width * 0.06} color="black" />
