@@ -114,7 +114,7 @@ container2: {
   productList: {
     flex: 1,
     paddingHorizontal:24,
-    marginTop:40,
+    marginTop:20,
   },
   header: {
     fontSize: 27,

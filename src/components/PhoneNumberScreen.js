@@ -41,7 +41,7 @@ const PhoneNumberScreen = () => {
         withShadow
         autoFocus
         withFlag
-        placeholder="" // Set placeholder to an empty string
+        placeholder=" " // Set placeholder to an empty string
         countryPickerButtonStyle={styles.countryPickerButtonStyle}
       />
 

@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding:10,
+    padding:5,
   },
   imageContainer: {
     backgroundColor: "#CDE0EE",

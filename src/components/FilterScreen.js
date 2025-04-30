@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 5,
     width:"40%",
-    marginTop:20,
+
   },
   applyBtn: {
     backgroundColor: '#89A97A',
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 5,
     width:"40%",
-    marginTop:20,
+
   },
   radioContainer: {
     flexDirection: 'row',

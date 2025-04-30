@@ -49,7 +49,7 @@ const BottomSheet = ({ closeModal }) => {
       <View style={styles.separator} />
 
       {renderOption('Rating', 'rating')}
-      <View style={styles.separator} />
+
     </View>
   );
 };
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: 'white',
-    height: 380,
+    height: 400,
     width: '100%',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
