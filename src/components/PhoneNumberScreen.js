@@ -72,17 +72,17 @@ const styles = StyleSheet.create({
     fontSize: 39,
     fontWeight: '700',
     color: '#272928',
-    marginBottom: 10,
+    marginBottom: 15,
   },
   subtitle: {
     fontSize: 16,
     fontWeight: '500',
     color: '#787878',
-    marginBottom: 30,
+    marginBottom: 35,
   },
   phoneContainer: {
     width: '100%',
-    height: 60,
+    height: 40,
     borderRadius: 10,
     backgroundColor: '#f2f2f2',
     overflow: 'hidden', // important for smooth corners

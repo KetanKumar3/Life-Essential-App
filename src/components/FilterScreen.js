@@ -87,7 +87,7 @@ const FilterScreen = ({ closeModal, applyFilters }) => {
           <TouchableOpacity style={styles.cancelBtn} onPress={closeModal}>
             <Text style={{ color: 'red',textAlign:"center" }}>Cancel</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.applyBtn} onPress={handleApply}>
+          <TouchableOpacity style={styles.applyBtn} >
             <Text style={{ color: 'white',textAlign:"center" }}>Apply</Text>
           </TouchableOpacity>
         </View>

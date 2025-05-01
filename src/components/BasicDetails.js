@@ -89,7 +89,7 @@ const BasicDetails = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 27,
+    paddingHorizontal: 27,
     justifyContent: 'flex-start',
   },
   title: {
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   termsContainer: {
     textAlign: 'center',
     marginHorizontal: 30,
-    marginTop: 20,
+    marginVertical: 20,
     fontSize: 12,
   },
   termsText: {

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Dimensions, Image } from 'react-native';
 import PhoneNumberScreen from './PhoneNumberScreen';
-import { KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
@@ -12,15 +12,13 @@ const Page = ({ children }) => {
 const Splash = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const scrollViewRef = useRef();
-  const phoneInputRef = useRef(null);
-  const pageCount = 4; // Number of pages
+  const pageCount = 4;
 
   const handleScroll = (event) => {
     const page = Math.round(event.nativeEvent.contentOffset.x / screenWidth);
     setCurrentPage(page);
   };
 
-  // Scroll to the first page on component mount (as a fallback)
   useEffect(() => {
     if (scrollViewRef.current) {
       scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false });
@@ -28,7 +26,7 @@ const Splash = () => {
   }, []);
 
   return (
-    <KeyboardAwareScrollView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView
         ref={scrollViewRef}
         horizontal={true}
@@ -37,7 +35,6 @@ const Splash = () => {
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
-
         {[...Array(pageCount)].map((_, index) => (
           <Page key={index}>
             {index === 0 && (
@@ -61,37 +58,39 @@ const Splash = () => {
                 <Text style={styles.subText}>Join our community.</Text>
               </View>
             )}
-            {index === 3 && currentPage === 3 && ( // <-- Render only when on page 3
-              <View style={styles.phoneNumberContainer}>
+            {index === 3 && currentPage === 3 && (
+              <KeyboardAwareScrollView
+                style={{ flex: 1, width: screenWidth }}
+                contentContainerStyle={styles.phoneNumberContainer}
+                enableOnAndroid={true}
+                extraScrollHeight={20}
+                keyboardShouldPersistTaps="handled"
+              >
                 <PhoneNumberScreen />
-              </View>
+              </KeyboardAwareScrollView>
             )}
           </Page>
         ))}
-
       </ScrollView>
 
-      {currentPage < pageCount - 1 && ( // Hide dots on the last page
+      {currentPage < pageCount - 1 && (
         <View style={styles.pagination}>
-          {[...Array(pageCount)].map((index) => (
+          {[...Array(pageCount)].map((_, index) => (
             <View
               key={index}
-              style={[
-                styles.dot,
-                currentPage === index && styles.activeDot,
-              ]}
+              style={[styles.dot, currentPage === index && styles.activeDot]}
             />
           ))}
         </View>
       )}
-    </KeyboardAwareScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   page: {
     width: screenWidth,
@@ -99,26 +98,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-  },
-  text: {
-    fontSize: screenWidth * 0.06, // Responsive font size
-  },
-  pagination: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    position: 'absolute',
-    bottom: screenHeight * 0.03, // Responsive bottom spacing
-    width: '100%',
-  },
-  dot: {
-    width: screenWidth * 0.02,
-    height: screenWidth * 0.02,
-    borderRadius: screenWidth * 0.01,
-    backgroundColor: 'gray',
-    margin: screenWidth * 0.01,
-  },
-  activeDot: {
-    backgroundColor: 'blue',
   },
   contentContainer: {
     justifyContent: 'center',
@@ -142,26 +121,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   phoneNumberContainer: {
-    width: screenWidth,
-    height: screenHeight,
+    flexGrow: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center', // Center items horizontally
-    paddingHorizontal: 27, // Responsive horizontal padding
+    alignItems: 'center',
+    paddingHorizontal: 27,
     paddingTop: 130,
   },
-  generateOTPButton: {
-    backgroundColor: '#4CAF50', // Example green color
-    width: '100%',
-    height: 50,
+  pagination: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-    marginTop: screenHeight * 0.03,
+    position: 'absolute',
+    bottom: screenHeight * 0.03,
+    width: '100%',
   },
-  generateOTPButtonText: {
-    color: 'white',
-    fontSize: screenWidth * 0.05,
-    fontWeight: 'bold',
+  dot: {
+    width: screenWidth * 0.02,
+    height: screenWidth * 0.02,
+    borderRadius: screenWidth * 0.01,
+    backgroundColor: 'gray',
+    margin: screenWidth * 0.01,
+  },
+  activeDot: {
+    backgroundColor: '#89A97A',
   },
 });
 
